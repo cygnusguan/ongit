@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="addUserApp">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="angular.js"></script>
+<link href="bootstrap-theme.css" rel="stylesheet"/>
+<link href="bootstrap.css" rel="stylesheet" />
+<script>
+	angular.module("addUserApp",[])
+	.controller("defaultCtrl",function($scope){
+		$scope.addUser=function(userDetails){
+			$scope.message=userDetails.name+"("+userDetails.email+") ("+userDetails.agreed+")";
+		};
+		$scope.message="Ready";
+	});
+</script>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+	<form name="myForm" novalidate ng-submit="addUser(userDetails)">
+		<div class="form-group">
+			<label>Name:</label>
+			<input name="userName" type="text" class="form-control" required ng-model="userDetails.name"></input>
+		</div>
+		<div class="form-group">
+			<label>Mail:</label>
+			<input name="email" type="email" class="form-control" required ng-model="userDetails.email"></input>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input name="agreed" type="checkbox" ng-model="userDetails.agreed" required>I agree.
+			</label>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block" ng-disabled="myForm.$invalid">OK</button>
+		<div class="well">
+			Message:{{message}}
+			<div>Valid:{{myForm.$valid}}</div>
+		</div>
+	</form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="decoratorApp">
+<head>
+<title>Decorator Component</title>
+<link href="bootstrap-theme.css" rel="stylesheet" />
+<link href="bootstrap.css" rel="stylesheet"/>
+<script src="angular.js" ></script>
+<script>
+angular.module("decoratorApp",[])
+.controller("defaultCtrl",function($scope,$injector){
+		var logClick = function($log,msg){
+		var count=0;
+		count++;
+		$log.log("count" + count + "," + msg);
+
+		};
+		$scope.handleEvent=function(event,$log){
+		var params=$injector.annotate(logClick);
+
+		for (var i=0;i<params.length;i++){
+		console.log(params[i]);
+		}
+		$injector.invoke(logClick,null,{msg:"Clicke me......."});
+		};
+});
+</script>
+</head>
+<body>
+<div class="well" ng-controller="defaultCtrl">
+	<button class="btn btn-default" ng-click="handleEvent($event)">Clicke me</button>
+</div>
+</body>
+</html>
