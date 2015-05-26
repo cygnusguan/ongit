@@ -1,0 +1,131 @@
+#+Author: Steven Guan
+
+
+
+* Update in Team Meeting
+**  <2015-05-11 周一 12:23> 
+#+begin_src
+    1.	Update:
+    a)	学习PC拍灯捡料的方案，以及AT500等硬件设备的用法。 
+    b)	小组讨论分析iTAC技术框架。
+    2.	TODO：
+    a)	预计周二（5.12）Marek 做iTAC开发环境等的training
+     需要了解iTac 的Enterprise Framework是什么
+     需要在培训后给出一个output,看看我们能拿多少，自己开发技术上的可行性。
+    b)	尝试拿iTAC Lenovo客制化代码
+    客制化代码明确是联想所有，所以可以拿到，注意方法。
+    c)	iTAC 系统里maven使用方法小组内部分析
+    d)	转化拍灯捡料硬件通信逻辑为Java代码
+#+end_src
+** <2015-05-25 周一>
+*** Update
+1. 电子标签的技术支持，与供应商联系中，初步结果是没有提供java的Demo。另外，我们用第三方JNI框架初步可以调用电子标签的DLL文件，阿武正在继续研究
+2. Pick to Light：已经确定我们开发小组在当前项目做客户端的开发，Server Function由iTAC实现。且iTAC负责Overall Solution
+3. Marek 5/15做了基于Eclipse的客户端开发演示，5/22 AMT做了ImsAPI的training，并给出客户端代码和Demo
+*** DONE 
+1. 阿武确认JNI调用电子标签的技术可行性，并给出Demo
+2. 与William制定Pck to Light的Master Plan
+3. 研究客户端代码，了解iTAC客户端开发框架和流程
+
+** <2015-06-08 周一>
+* P2L Schedule
+** Overall Schedule Table
+|-------------------+-------------------+-------------------+---------------+-----------------------+---------------+------------------|
+| Phase             | Start             | End               | during(weeks) | Sub Phase             | During (week) | Notes            |
+|-------------------+-------------------+-------------------+---------------+-----------------------+---------------+------------------|
+| Preparation       | <2015-05-25 周一> | <2015-07-03 周五> |             5 |                       |               | Poney            |
+|                   |                   |                   |               | 用户需求文档          |             2 | 武彦负责文档输出 |
+|                   |                   |                   |               | IT Sulution文档       |             4 | jens             |
+|                   |                   |                   |               | E-tag硬件Java调用研究 |             2 | 阿武             |
+|-------------------+-------------------+-------------------+---------------+-----------------------+---------------+------------------|
+| Realization       | <2015-06-29 周一> | <2015-11-27 周五> |            21 |                       |               | 开发组           |
+|                   |                   |                   |               | Coding                |            12 |                  |
+|                   |                   |                   |               | SIT                   |             9 |                  |
+|-------------------+-------------------+-------------------+---------------+-----------------------+---------------+------------------|
+| Final Preparation | <2015-11-30 周一> | <2016-03-25 周五> |            16 |                       |               |                  |
+|                   |                   |                   |               | UAT                   |            12 |                  |
+|-------------------+-------------------+-------------------+---------------+-----------------------+---------------+------------------|
+
+** Schedule Details  
+*** Preparation (4Weeks) <2015-05-25 周一>
+SCHEDULED: <2015-05-25 周一>
+- Note taken on [2015-05-25 周一 11:27] \\
+  Poney负责Pick 2 Light solution
+
+**** User Requirement Document (2 weeks)
+SCHEDULED: <2015-06-05 周五>
+- Note taken on [2015-05-25 周一 11:26] \\
+  武彦负责文档输出
+
+
+**** IT Solution Document (5 weeks)
+SCHEDULED: <2015-05-25 周一>
+- Note taken on [2015-05-25 周一 11:28] \\
+  Jens编写文档，Poney管理进度
+
+
+**** E-tag硬件Java调用研究 (2 weeks)
+SCHEDULED: <2015-05-25 周一>
+- Note taken on [2015-05-25 周一 11:31] \\
+  阿武负责研究JNI调用的可行性，以及联系硬件厂商支持
+**** iTAC client实现框架
+SCHEDULED: <2015-05-25 周一>
+- Note taken on [2015-05-25 周一 11:45] \\
+  开发组研究，同时iTac提供培训
+*** Realization (20Weeks)<2015-06-29 周一>
+SCHEDULED: <2015-06-29 周一>
+**** Coding (12weeks)
+
+**** SIT (8weeks)
+*** Final Preparation  (13Weeks) <2015-11-30 周一>
+    SCHEDULED: <2015-11-30 周一>
+
+* P2L IT Solution Issue
+** TODO IT Solution里需要把P2L的section(Lable,Kit,Package)放到装配的work plan里，作为一个个的work step
+   DEADLINE: <2015-05-27 周三>
+** TODO Jens的solution里需要每一个group对应一个station 
+   DEADLINE: <2015-05-29 周五>
+** TODO Ask Poney: Line,Section, Group,Location的属性列表，是否一样？
+   DEADLINE: <2015-05-27 周三>
+|-----------+-------------+------------|
+| Node Name | 属性        | 属性值描述 |
+|-----------+-------------+------------|
+| Line      | Line ID     |            |
+|           | Name        |            |
+|-----------+-------------+------------|
+| Section   | Name        |            |
+|           |             |            |
+|-----------+-------------+------------|
+| Group     | Group ID    |            |
+|           |             |            |
+|-----------+-------------+------------|
+| Location  | Location ID |            |
+|           |             |            |
+|           |             |            |
+
+
+
+* [2015-05-26 周二] DEV group meeting
+** Agenda
+1. Check group TODO
+2. 收集手上已有的文档
+3. Run the demo of Marek to demonstrate the rough tech points.
+4. Arrange WBS for DEV preparaiton
+** Meeting minutes
+*** TODO 阿武确认JNA调用电子标签的技术可行性
+    DEADLINE: <2015-05-29 周五>
+*** 文档资料列表
+1. coWork->《X86 iTac MES BSR V14 0516.ppt》 P124 需求BSR
+2. iTAC相关技术文档在： coWork -> iTAC Tech Doc
+3. Demo code : SVN repository
+*** TODO Client Demo技术分解 （Steven，Feio）
+    DEADLINE: <2015-05-29 周五>
+1. API调用的触发点
+2. CDI的用法
+3. UI使用的技术点
+*** 阿武演示E-Tag JNI代码
+*** TODO Feio 展示Java技能
+    SCHEDULED: <2015-06-01 周一>
+*** TODO Yan Ling 内部讲解P2L需求
+    SCHEDULED: <2015-06-02 周二>
+
