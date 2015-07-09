@@ -9,10 +9,8 @@ import mockit.Mocked;
 public class Test1 {
 	@Mocked  TBean bean;
 
-	
-	
-	@Test
-	public void test1(){
+    @Test
+    public void test1(){
 		
 		new Expectations() {
 			{
