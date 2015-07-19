@@ -3,6 +3,10 @@ package bean;
 public class TBean {
 	private String name;
 	private String id;
+	
+	public TBean(){
+		System.out.println("Init Tbean...");
+	}
 	public String getName() {
 		return name;
 	}
