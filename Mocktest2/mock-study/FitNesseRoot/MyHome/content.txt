@@ -1,0 +1,6 @@
+!contents -R2 -g -p -f -h
+
+!***> Basic class path
+!define TEST_SYSTEM {slim}
+!pomFile pom.xml
+*!

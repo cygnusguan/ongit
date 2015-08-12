@@ -55,6 +55,7 @@
                   <echo taskname="fitnesse" message="Starting FitNesse..." />
                   <java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath" fork="true">
                     <arg line="-p 8000" />
+                    <arg line="-e 0" />
                     <arg line="-d ." />
                   </java>
                 </tasks>

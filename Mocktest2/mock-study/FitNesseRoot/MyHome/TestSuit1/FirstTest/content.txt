@@ -1,0 +1,14 @@
+!***> setup
+| import |
+| bean |
+*!
+
+
+| bean.Target |
+| a | b | get c? |
+| 1 | 2 | 3 |
+| 3 | 5 | 8 |
+
+| Subset Query:employees hired before2 | 1980-12-01 |
+| employee number | first name | last name | hire date |
+| 1429 | Bob | Martin | |

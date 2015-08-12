@@ -225,3 +225,5 @@ bower_components
 
 *.class
 target/
+
+*.zip
