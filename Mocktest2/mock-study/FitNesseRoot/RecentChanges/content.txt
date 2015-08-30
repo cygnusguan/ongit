@@ -1,5 +1,8 @@
-|MyHome.TestSuit1.FirstTest||24:00:50 星期四, 八月 13, 2015|
+|MyHome.TestFest||16:21:46 星期六, 八月 29, 2015|
+|MyHome.TestSuit1.FirstTest||24:02:05 星期一, 八月 24, 2015|
+|MyHome.TestSuit1.RemoteRegister||16:26:26 星期日, 八月 23, 2015|
+|MyHome.TestSuit1.SetUp||23:04:27 星期六, 八月 22, 2015|
+|MyHome.TestSuit1.TestBegin||24:11:38 星期六, 八月 22, 2015|
+|FrontPage||23:26:00 星期五, 八月 21, 2015|
 |MyHome.TestSuit1||23:57:34 星期三, 八月 12, 2015|
 |MyHome||23:44:59 星期三, 八月 12, 2015|
-|MyHome.TestSuit1.SetUp||24:03:19 星期一, 八月 10, 2015|
-|MyHome.TestSuit1.TestBegin||24:03:02 星期一, 八月 10, 2015|

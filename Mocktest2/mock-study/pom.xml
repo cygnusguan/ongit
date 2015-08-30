@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.cygan</groupId>
-  <artifactId>mock-study</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>mock-study</name>
-  <url>http://maven.apache.org</url>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cygan</groupId>
+	<artifactId>mock-study</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>mock-study</name>
+	<url>http://maven.apache.org</url>
 	<dependencies>
 
 		<dependency>
@@ -17,140 +17,163 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.47.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.uispec4j</groupId>
+			<artifactId>uispec4j</artifactId>
+			<version>2.4</version>
+			<classifier>jdk16</classifier>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-swing</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
-      <dependency>
-        <groupId>org.fitnesse.plugins</groupId>
-        <artifactId>maven-classpath-plugin</artifactId>
-        <version>1.9</version>
-        <scope>test</scope>
-      </dependency>
+		<dependency>
+			<groupId>org.fitnesse.plugins</groupId>
+			<artifactId>maven-classpath-plugin</artifactId>
+			<version>1.9</version>
+			<scope>test</scope>
+		</dependency>
 
-		
+
 		<dependency>
 			<groupId>org.fitnesse</groupId>
 			<artifactId>fitnesse</artifactId>
 			<version>20150424</version>
 		</dependency>
 
-		
+
 	</dependencies>
 
-<profiles>
-  <profile>
-    <id>fitnesse</id>
-    <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.6</version>
-          <executions>
-            <execution>
-              <id>start-fitnesse</id>
-              <phase>test</phase>
-              <configuration>
-                <tasks>
-                  <echo taskname="fitnesse" message="Starting FitNesse..." />
-                  <java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath" fork="true">
-                    <arg line="-p 8000" />
-                    <arg line="-e 0" />
-                    <arg line="-d ." />
-                  </java>
-                </tasks>
-              </configuration>
-              <goals>
-                <goal>run</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
-      </plugin>
-      </plugins>
-    </build>
-      <dependencies>
-      <dependency>
-        <groupId>org.fitnesse.plugins</groupId>
-        <artifactId>maven-classpath-plugin</artifactId>
-        <version>1.9</version>
-        <scope>runtime</scope>
-      </dependency>
-    </dependencies>
-  </profile>
-  <profile>
-    <id>fitnesse-it</id>
-       <activation>
-      <activeByDefault>false</activeByDefault>
-    </activation>
-    <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.6</version>
-          <executions>
-            <execution>
-              <id>start-fitnesse</id>
-              <phase>test</phase>
-              <configuration>
-                <tasks>
-                  <echo taskname="fitnesse" message="Starting FitNesse..." />
-                  <java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath" fork="true">
-                    <arg line="-p 8000" />
-                    <arg line="-c MyHome.TestSuit1.FirstTest?test&amp;format=text" />
-                    <arg line="-d ." />
-                  </java>
-                </tasks>
-              </configuration>
-              <goals>
-                <goal>run</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-      <dependencies>
-      <dependency>
-        <groupId>org.fitnesse.plugins</groupId>
-        <artifactId>maven-classpath-plugin</artifactId>
-        <version>1.9</version>
-        <scope>runtime</scope>
-      </dependency>
-    </dependencies>
-  </profile>
-  <profile>
-    <id>failsafe</id>
-  	
-  	<build>
-  		<plugins>
-  			<plugin>
-  				<groupId>org.apache.maven.plugins</groupId>
-  				<artifactId>maven-failsafe-plugin</artifactId>
-  				<version>2.8.1</version>
-  				<executions>
-  					<execution>
-  						<goals>
-  							<goal>integration-test</goal>
-  							<goal>verify</goal>
-  						</goals>
-  					</execution>
-  				</executions>
-		        <configuration>
-		          <skipTests>true</skipTests>
-		        </configuration>
-  			</plugin>
-  		</plugins>
-  	</build>
-  </profile>
-</profiles>
+	<profiles>
+		<profile>
+			<id>fitnesse</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>start-fitnesse</id>
+								<phase>test</phase>
+								<configuration>
+									<tasks>
+										<echo taskname="fitnesse" message="Starting FitNesse..." />
+										<java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath"
+											fork="true">
+											<arg line="-p 8000" />
+											<arg line="-e 0" />
+											<arg line="-d ." />
+										</java>
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.fitnesse.plugins</groupId>
+					<artifactId>maven-classpath-plugin</artifactId>
+					<version>1.9</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>fitnesse-it</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>start-fitnesse</id>
+								<phase>test</phase>
+								<configuration>
+									<tasks>
+										<echo taskname="fitnesse" message="Starting FitNesse..." />
+										<java classname="fitnesseMain.FitNesseMain" classpathref="maven.runtime.classpath"
+											fork="true">
+											<arg line="-p 8000" />
+											<arg line="-c MyHome.TestSuit1.FirstTest?test&amp;format=text" />
+											<arg line="-d ." />
+										</java>
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.fitnesse.plugins</groupId>
+					<artifactId>maven-classpath-plugin</artifactId>
+					<version>1.9</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>failsafe</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.8.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 
 </project>

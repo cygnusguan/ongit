@@ -1,8 +1,40 @@
 !***> setup
 | import |
 | bean |
+|test|
+|fitnesse.slim.test|
 *!
 
+!4 Study Table-table
+|table:person fixture|
+|a|b|
+|C|D|
+
+
+!4 scenario
+|scenario|write|a| to db|b|
+|show|get this|
+
+|script|person fixture|
+
+|script|
+|write| aaa| to db| bbb|
+
+
+|write to db|
+|a|b|
+|1|2|
+
+
+|script|person fixture|
+|add name|Jack|id|001|
+|add name|Bing|id|002|
+|add name|Steven|id|003|
+|$q=|get this|
+
+|subset Query:$q|abc|
+|name|id|
+|Jack||
 
 | bean.Target |
 | a | b | get c? |

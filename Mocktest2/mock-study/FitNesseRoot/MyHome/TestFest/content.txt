@@ -1,0 +1,8 @@
+!|script|fitnesse.fixtures.SystemExitTableConfiguration                 |
+|set system property|prevent.system.exit|to|false|
+
+|import|
+|com.cygan|
+
+|script|com.cygan.MyFrameTest|
+|start fest|

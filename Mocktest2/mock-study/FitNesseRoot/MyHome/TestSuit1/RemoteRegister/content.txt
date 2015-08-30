@@ -1,0 +1,46 @@
+!4 Scenario List
+|scenario|register request |ip||credential||name||result?||user?|
+|$result=|check register request;|@ip|@credential|@name|
+|$user=|get user|
+
+
+!4 Overall Test Case
+|script| register new user|
+|$ft=|get this|
+
+
+!define blank {}
+!define list [1, 2, 3, 4, 5]
+
+
+
+|register request |
+|ip|credential|name|result?|user?|
+|192.168.1.1|RTYUJHGFG|Jack|OK|null|
+|192.168.1.1|${blank}|Jack|Reject|$user=|
+||XFDSF|Stark|OK||
+
+|script|
+|execute register;|ip|credential|name|
+|$result=|query user by ip|192.168.1.1|
+|check|list|${list}|[1, 2]|
+
+
+
+|query: $result|
+|ip|name|
+|192.168.1.1||
+|192.168.1.1|Jennifer|
+
+!4 Another Decision Table
+|register new user|
+|ip|credential|name|reg result?|get user?|get this?|
+|192.168.1.1|RTYUJHGFG|Jack|OK|$user=||
+|192.168.1.1|${blank}|Jack|Reject||$reg=|
+
+!4 Check based on Decision Table
+|$user|
+|get id?|get name?|
+|bean1|Steven|
+
+
